@@ -6,7 +6,7 @@ plugins:
     ~server-satori:v0j6y2: {}
     ~server-temp:wzv08n: {}
   group:basic:
-    ~admin:d368m0: {}
+    admin:d368m0: {}
     ~bind:n4hzi4: {}
     commands:swwx6b: {}
     help:j7cwyd: {}
@@ -87,56 +87,32 @@ plugins:
     $if: env.NODE_ENV === 'development'
     hmr:vfzjvw:
       root: .
-  envy:ia67zo:
-    WeatherKey: b4b8f73d4dae437fb1046bccfddd5894
-    CaiyunApp: 2hTRsUuqmO47hCf9
-    WeatherPushSwitch: true
-    WeatherPushTime: 0 0/15 * * * ?
-    WeatherPushGroup:
-      GroupList:
-        - ID: '348179472'
-          Switch: true
-          P:
-            - ID: '540372879'
-              Name: 天才美少女Envy
-              X: 120.28
-              'Y': 30.19
-            - ID: '211282457'
-              Name: 金昌桃黛玉
-              X: 102.18
-              'Y': 38.53
-            - ID: '3054113523'
-              Name: 鹤壁日辰
-              X: 114.18
-              'Y': 35.9
-            - ID: '897260422'
-              Name: 临平SBP
-              X: 120.32
-              'Y': 30.42
-            - ID: '1305847361'
-              Name: 菏泽胡小吃
-              X: 115.11
-              'Y': 35.3
-            - ID: '2081204703'
-              Name: 上海外国语大学
-              X: 121.23
-              'Y': 31.05
-            - ID: '2820817019'
-              Name: 芜湖大河
-              X: 118.37
-              'Y': 31.28
-            - ID: '5748513'
-              Name: 汉西豹哥
-              X: 114.23
-              'Y': 30.59
-            - ID: '2392243657'
-              Name: 延安大香蕉
-              X: 109.52
-              'Y': 36.63
-            - ID: '1367029935'
-              Name: 中山打胶店
-              X: 113.2
-              'Y': 22.68
   blockly:mkxl3s: {}
+  kbot:p24lrp:
+    superAdminQQ:
+      - '540372879'
+    KBotBasic:
+      renjian: true
+      yiyan: true
+      checkBody:
+        enabled: true
+        useModel: {}
+  downloads:y26c0u: {}
+  puppeteer:1mlswk: {}
+  ~html-renderer:mieztd: {}
+  ~@nonebot/htmlrender:mp38hi: {}
+  envy:dilci3:
+    CaiyunApp: 2hTRsUuqmO47hCf9
+    WeatherKey: b4b8f73d4dae437fb1046bccfddd5894
+    WeatherPushSwitch: true
+    WeatherPushGroup:
+      - ID: 7BB5E58358150315B93BDD6B87D1A2F2
+        Switch: true
+        P:
+          - ID: 851787C85BF1A0705042E46E9AC1D1A9
+            Name: 天才美少女Envy
+            X: 120
+            'Y': 32
+    WeatherPushTime: 0 0/15 * * * ?
 prefix:
   - /

@@ -1,0 +1,84 @@
+<html>
+        <head>
+         <link rel="stylesheet" type="text/css" href="${dirname}/resources/temperature.css"/>
+        </head>
+        <body>
+         <div id="container" class="profile-cont"></div>
+        </body>
+        <script type="text/javascript" src="${dirname}/resources/echarts.min.js"></script>
+<script type="text/javascript" src="${dirname}/resources/chalk.js"></script>
+<script type="text/javascript">
+  var dom = document.getElementById('container');
+  var myChart = echarts.init(dom, 'chalk', {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+  var app = {};
+
+  var option;
+
+
+  option = {
+    title: {
+      text: '{{title}}'
+    },
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      width: "70%",
+      data: JSON.parse(${legend}),
+      show:true,
+      right:0,
+      textStyle:
+        {
+          color:'rgba(255,255,255,1)'
+        }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: JSON.parse(${})
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: JSON.parse(${series})
+  };
+
+  if (option && typeof option === 'object') {
+    for(let ser of option.series)
+    {
+      ser.label.formatter=params => {
+        if(ser.probability[params.dataIndex] == '0')
+        {
+          return ''
+        }
+        return ser.probability[params.dataIndex]+'%'
+      }
+
+      ser.markLine.label.formatter=params =>{
+        if (params.value == 12.86) { return '暴雨／雪' }
+        if (params.value == 2.87) { return '大雨／雪' }
+        if (params.value == 0.90) { return '中雨／雪' }
+        if (params.value == 0.06) { return '小雨／雪' }
+      }
+    }
+    myChart.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart.resize);
+</script>
+
+        </html>
